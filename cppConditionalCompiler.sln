@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.852
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cppConditionalCompiler", "cppConditionalCompiler.vcxproj", "{FB1F2510-EF74-4005-B1B6-98602E4368C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug DLL|x64 = Debug DLL|x64
+		Debug DLL|x86 = Debug DLL|x86
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release DLL|x64 = Release DLL|x64
+		Release DLL|x86 = Release DLL|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB1F2510-EF74-4005-B1B6-98602E4368C1}.Debug DLL|x64.ActiveCfg = Debug DLL|x64
+		{FB1F2510-EF74-4005-B1B6-98602E4368C1}.Debug DLL|x64.Build.0 = Debug DLL|x64
+		{FB1F2510-EF74-4005-B1B6-98602E4368C1}.Debug DLL|x86.ActiveCfg = Debug DLL|Win32
+		{FB1F2510-EF74-4005-B1B6-98602E4368C1}.Debug DLL|x86.Build.0 = Debug DLL|Win32
+		{FB1F2510-EF74-4005-B1B6-98602E4368C1}.Debug|x64.ActiveCfg = Debug|x64
+		{FB1F2510-EF74-4005-B1B6-98602E4368C1}.Debug|x64.Build.0 = Debug|x64
+		{FB1F2510-EF74-4005-B1B6-98602E4368C1}.Debug|x86.ActiveCfg = Debug|Win32
+		{FB1F2510-EF74-4005-B1B6-98602E4368C1}.Debug|x86.Build.0 = Debug|Win32
+		{FB1F2510-EF74-4005-B1B6-98602E4368C1}.Release DLL|x64.ActiveCfg = Release DLL|x64
+		{FB1F2510-EF74-4005-B1B6-98602E4368C1}.Release DLL|x64.Build.0 = Release DLL|x64
+		{FB1F2510-EF74-4005-B1B6-98602E4368C1}.Release DLL|x86.ActiveCfg = Release DLL|Win32
+		{FB1F2510-EF74-4005-B1B6-98602E4368C1}.Release DLL|x86.Build.0 = Release DLL|Win32
+		{FB1F2510-EF74-4005-B1B6-98602E4368C1}.Release|x64.ActiveCfg = Release|x64
+		{FB1F2510-EF74-4005-B1B6-98602E4368C1}.Release|x64.Build.0 = Release|x64
+		{FB1F2510-EF74-4005-B1B6-98602E4368C1}.Release|x86.ActiveCfg = Release|Win32
+		{FB1F2510-EF74-4005-B1B6-98602E4368C1}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC2651F6-FEB0-4414-8EB6-62C532DBB409}
+	EndGlobalSection
+EndGlobal
