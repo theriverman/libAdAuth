@@ -1,6 +1,15 @@
 # libAdAuth
 Active Directory authentication library wrapper written in C++
 
+## Motivation
+Authenticating users against Active Directory in Python is slow with pure Python packages. I wanted to speed up the process for saving time on both ends (server & client). It seemed trivial to implement the AD authentication in C/C++ and call it from Python.
+
+According to my simple, unaccredited tests, the speedup was clearly observable.
+
+Getting user details, such as, e-mail address, full name, manager, group memberships, etc... have been deliberately excluded from this wrapper because I wanted to speed up the login procedure only. The rest of the calls to AD are done asynchronously without blocking the end-user.
+
+Last, but not least I wanted to learn about the C/C++ <-> Python interoperability while trying to write a cross-platform code.
+
 # Building
 The `libAdAuth` library is cross-platform (Linux + Windows) library with a single platform dependency. <br>
 To build the library, a C/C++ compiler will be required on each build system.
