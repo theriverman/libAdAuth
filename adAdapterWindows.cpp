@@ -10,9 +10,9 @@
 #include <memory>
 #include <stdexcept>
 
-wchar_t *convertCharArrayToLPCWSTR(char* charArray)
+wchar_t *convertCharArrayToLPCWSTR(char *charArray)
 {
-	wchar_t* wString = new wchar_t[4096];
+	wchar_t *wString = new wchar_t[4096];
 	MultiByteToWideChar(CP_ACP, 0, charArray, -1, wString, 4096);
 	return wString;
 }
@@ -35,7 +35,7 @@ int authWindows(
 	}
 
 	// Initialise & Open LDAP Connection
-	LDAP* ld = ldap_init(convertCharArrayToLPCWSTR(host), *port);  // ld is the LDAP connection
+	LDAP *ld = ldap_init(convertCharArrayToLPCWSTR(host), *port);  // ld is the LDAP connection
 	LDAP_TIMEVAL connTimeout = { 5, 0 }; // 5sec 0ms timeout for LDAP connection
 	ULONG conn = ldap_connect(ld, &connTimeout);
 	if (conn == LDAP_SUCCESS) {
@@ -51,7 +51,7 @@ int authWindows(
 
 	// Interpolate username + domain into a DN username
 	std::string _DN = username + std::string("@") + domain;
-	char* DN = _strdup(_DN.c_str());
+	char *DN = _strdup(_DN.c_str());
 
 	// Bind As User
 	ULONG bind = ldap_simple_bind_s(
@@ -60,11 +60,11 @@ int authWindows(
 		convertCharArrayToLPCWSTR(password) // Password
 	);
 
-	switch (bind)
+	switch(bind)
 	{
 	case LDAP_SUCCESS:
 		#ifdef DEBUG
-				std::cout << "Successful BIND to LDAP server..." << std::endl;
+			std::cout << "Successful BIND to LDAP server..." << std::endl;
 		#endif // DEBUG
 		break;
 	case LDAP_INVALID_CREDENTIALS:
