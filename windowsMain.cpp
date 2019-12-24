@@ -12,7 +12,7 @@ int main()
 	const char *hst = "***********";
 	const char *dmn = "***********";
 
-	// Cast const char* -> char*
+	// Cast const char * -> char *
 	auto username = (char*)dn;
 	auto password = (char*)pw;
 	auto host = (char*)hst;

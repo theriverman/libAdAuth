@@ -28,7 +28,7 @@ int authLinux(
 	
 	// Handler initialisation
 	std::string _server = std::string("ldap://") + host;  // <username>@<domain>
-	char* SERVER = strdup(_server.c_str());  // cast std::string -> char*
+	char *SERVER = strdup(_server.c_str());  // cast std::string -> char*
 
 	int status = ldap_initialize(&ld, SERVER);
 	if (status != LDAP_SUCCESS) {
@@ -39,7 +39,7 @@ int authLinux(
 
 	// Interpolate username + domain into a DN username
 	std::string _DN = username + std::string("@") + domain;  // <username>@<domain>
-	char* DN = strdup(_DN.c_str());
+	char *DN = strdup(_DN.c_str());
 
 	// Execute bind
 	// int res = ldap_sasl_bind_s(ld, DN, LDAP_SASL_AUTOMATIC, &credentials, NULL, NULL, NULL);  // SASL [NOK]

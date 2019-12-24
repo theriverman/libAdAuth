@@ -16,14 +16,14 @@ int main()
 	const char *hst = "********.uk";
 	const char *dmn = "********.uk";
 
-	// Cast const char* -> char*
+	// Cast const char * -> char *
 	auto username = dn;
 	auto password = (char*)pw;
 	auto host = (char*)hst;
 	auto domain = (char*)dmn;
 
 	// LDAP Handler
-	LDAP* ld;
+	LDAP *ld;
 	
 	// Handler initialisation
 	int status = ldap_initialize(&ld, "ldap://******.uk");
