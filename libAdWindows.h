@@ -13,7 +13,7 @@ int authWindows(
 	char *password,
 	char *host,
 	char *domain,
-	int *port
+	int  *port
 );
 
 DLLEXPORT int auth(char *username, char *password, char *host, char *domain, int *port);
