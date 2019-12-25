@@ -23,3 +23,7 @@ export OUT_SO_DEBUG="libAdAuthDebug.so"
 # Build Shared Object Library [Release]
 g++ -std=c++17 -fPIC -c -Wall $BASE_FILES
 g++ -shared adAdapterLinux.o sharedObject.o $LIBLDAP -o $OUT_SO
+
+
+# Cleanup
+rm -rf adAdapterLinux.o libAdLinux.h.gch sharedObject.o
