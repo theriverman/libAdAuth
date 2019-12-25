@@ -3,8 +3,8 @@ from ctypes.wintypes import LPLONG
 
 # C++ Header
 # DLLEXPORT int auth(char *username, char *password, char *host, char *domain, int *port);
-DLL_PATH_DEBUG = r'C:\Users\*************\libAdAuthCpp\x64\Debug DLL\libAdAuthCpp.dll'
-DLL_PATH_RELEASE = r'C:\Users\***********\libAdAuthCpp\x64\Release\libAdAuthCpp.dll'
+DLL_PATH_DEBUG = r'C:\Users\*************\libAdAuth\x64\Debug DLL\libAdAuth.dll'
+DLL_PATH_RELEASE = r'C:\Users\***********\libAdAuth\x64\Release\libAdAuth.dll'
 
 username = create_string_buffer(b"************")
 password = create_string_buffer(b"************")

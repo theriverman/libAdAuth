@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from ctypes import cdll, c_char_p, c_int, create_string_buffer, c_long
 
-SO_PATH="/home/***************/libAdAuthCpp/libAdAuthCpp.so"
+SO_PATH="/home/***************/libAdAuth/libAdAuth.so"
 
 username = create_string_buffer(b"********")
 password = create_string_buffer(b"********")
