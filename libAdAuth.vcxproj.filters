@@ -33,6 +33,9 @@
     <ClCompile Include="linuxMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="windowsMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libAdLinux.h">
