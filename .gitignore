@@ -340,8 +340,7 @@ ASALocalRun/
 healthchecksdb
 
 # Compiled (test) binaries/objects
-libAdAuthCppBin
-cppConditionalCompiler.rc
+libAdAuthBinDebug
 *.o
 *.so
 *.gch
