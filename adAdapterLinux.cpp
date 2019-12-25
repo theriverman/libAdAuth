@@ -58,7 +58,9 @@ int authLinux(
 		std::cerr << "Bind failed. Error Code: " << bind << " | Message: " << ldap_err2string(bind) << std::endl;
 		return bind;
 	} else {
+		#ifdef DEBUG
 		std::cout << "Bind success !" << std::endl;
+		#endif
 	}
 
 	// Unbind
@@ -66,7 +68,9 @@ int authLinux(
 	if (unbind != LDAP_SUCCESS) {
 		std::cerr << "Unbind failed. Error Code: " << unbind << " | Message: " << ldap_err2string(bind) << std::endl;
 	} else {
+		#ifdef DEBUG
 		std::cout << "Unbind success !" << std::endl;
+		#endif
 	}
     return bind;
 }
