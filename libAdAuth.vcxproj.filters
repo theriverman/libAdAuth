@@ -26,13 +26,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\windows\include\libAdWindows.h">
+    <ClInclude Include="src\windows\include\libAdWindows.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\windows\include\stdafx.h">
+    <ClInclude Include="src\windows\include\stdafx.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\windows\include\targetver.h">
+    <ClInclude Include="src\windows\include\targetver.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

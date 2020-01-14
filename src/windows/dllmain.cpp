@@ -2,8 +2,8 @@
 
 #ifdef _WIN32
 
-#include "include/stdafx.h"
-#include "include/libAdWindows.h"
+#include "include/stdafx.hpp"
+#include "include/libAdWindows.hpp"
 #include <iostream>
 
 BOOL APIENTRY DllMain(HMODULE hModule,

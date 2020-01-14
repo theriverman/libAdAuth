@@ -309,9 +309,9 @@
     <ClCompile Include="src\windows\windowsMain.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\windows\include\libAdWindows.h" />
-    <ClInclude Include="src\windows\include\stdafx.h" />
-    <ClInclude Include="src\windows\include\targetver.h" />
+    <ClInclude Include="src\windows\include\libAdWindows.hpp" />
+    <ClInclude Include="src\windows\include\stdafx.hpp" />
+    <ClInclude Include="src\windows\include\targetver.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
