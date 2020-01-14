@@ -2,9 +2,9 @@
 
 #ifdef _WIN32
 
-#include "stdafx.h"
+#include "include/stdafx.h"
+#include "include/libAdWindows.h"
 #include <iostream>
-#include "libAdWindows.h"
 
 BOOL APIENTRY DllMain(HMODULE hModule,
                       DWORD  ul_reason_for_call,
