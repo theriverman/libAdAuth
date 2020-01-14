@@ -1,6 +1,6 @@
 #ifdef __linux__
 
-#include "include/libAdLinux.h"
+#include "include/libAdLinux.hpp"
 
 #include <stdint.h>
 #include <iostream>

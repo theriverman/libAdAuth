@@ -4,8 +4,8 @@
 
 # Runtime Variables
 PROJECT_ROOT=$(pwd)
-BASE_FILES_BIN="$PROJECT_ROOT/src/linux/linuxMain.cpp $PROJECT_ROOT/src/linux/adAdapterLinux.cpp $PROJECT_ROOT/src/linux/include/libAdLinux.h"
-BASE_FILES="$PROJECT_ROOT/src/linux/sharedObject.cpp $PROJECT_ROOT/src/linux/adAdapterLinux.cpp $PROJECT_ROOT/src/linux/include/libAdLinux.h"
+BASE_FILES_BIN="$PROJECT_ROOT/src/linux/linuxMain.cpp $PROJECT_ROOT/src/linux/adAdapterLinux.cpp $PROJECT_ROOT/src/linux/include/libAdLinux.hpp"
+BASE_FILES="$PROJECT_ROOT/src/linux/sharedObject.cpp $PROJECT_ROOT/src/linux/adAdapterLinux.cpp $PROJECT_ROOT/src/linux/include/libAdLinux.hpp"
 LIBLDAP="/usr/lib/x86_64-linux-gnu/libldap-2.4.so.2"
 OUT_BIN="test_libAdAuthBin"
 OUT_BIN_DEBUG="libAdAuthBinDebug"

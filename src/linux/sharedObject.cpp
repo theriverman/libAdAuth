@@ -1,7 +1,7 @@
 #ifdef __linux__
 
 #include <iostream>
-#include "include/libAdLinux.h"
+#include "include/libAdLinux.hpp"
 
 
 #ifdef DEBUG
