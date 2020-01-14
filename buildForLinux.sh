@@ -2,15 +2,15 @@
 
 # sudo apt-get install libldap2-dev
 
-# Export Runtime Variables
-export PROJECT_ROOT=$(pwd)
-export BASE_FILES_BIN="$PROJECT_ROOT/src/linux/linuxMain.cpp $PROJECT_ROOT/src/linux/adAdapterLinux.cpp $PROJECT_ROOT/src/linux/include/libAdLinux.h"
-export BASE_FILES="$PROJECT_ROOT/src/linux/sharedObject.cpp $PROJECT_ROOT/src/linux/adAdapterLinux.cpp $PROJECT_ROOT/src/linux/include/libAdLinux.h"
-export LIBLDAP="/usr/lib/x86_64-linux-gnu/libldap-2.4.so.2"
-export OUT_BIN="test_libAdAuthBin"
-export OUT_BIN_DEBUG="libAdAuthBinDebug"
-export OUT_SO="$PROJECT_ROOT/out/libAdAuth.so"
-export OUT_SO_DEBUG="$PROJECT_ROOT/out/libAdAuthDebug.so"
+# Runtime Variables
+PROJECT_ROOT=$(pwd)
+BASE_FILES_BIN="$PROJECT_ROOT/src/linux/linuxMain.cpp $PROJECT_ROOT/src/linux/adAdapterLinux.cpp $PROJECT_ROOT/src/linux/include/libAdLinux.h"
+BASE_FILES="$PROJECT_ROOT/src/linux/sharedObject.cpp $PROJECT_ROOT/src/linux/adAdapterLinux.cpp $PROJECT_ROOT/src/linux/include/libAdLinux.h"
+LIBLDAP="/usr/lib/x86_64-linux-gnu/libldap-2.4.so.2"
+OUT_BIN="test_libAdAuthBin"
+OUT_BIN_DEBUG="libAdAuthBinDebug"
+OUT_SO="$PROJECT_ROOT/out/libAdAuth.so"
+OUT_SO_DEBUG="$PROJECT_ROOT/out/libAdAuthDebug.so"
 
 # Change Directory to ./src
 mkdir -p build || exit 1
