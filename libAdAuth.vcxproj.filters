@@ -15,39 +15,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="adAdapterWindows.cpp">
+    <ClCompile Include="src\windows\adAdapterWindows.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="adAdapterLinux.cpp">
+    <ClCompile Include="src\windows\dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="dllmain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sharedObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="linuxMain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="windowsMain.cpp">
+    <ClCompile Include="src\windows\windowsMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="libAdLinux.h">
+    <ClInclude Include="src\windows\include\libAdWindows.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="libAdWindows.h">
+    <ClInclude Include="src\windows\include\stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
+    <ClInclude Include="src\windows\include\targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

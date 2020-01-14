@@ -344,3 +344,5 @@ libAdAuthBinDebug
 *.o
 *.so
 *.gch
+build
+out
