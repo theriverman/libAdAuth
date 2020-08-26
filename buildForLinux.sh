@@ -4,12 +4,16 @@
 
 # Runtime Variables
 PROJECT_ROOT=$(pwd)
+# shellcheck disable=SC2034
 BASE_FILES_BIN="$PROJECT_ROOT/src/linux/linuxMain.cpp $PROJECT_ROOT/src/linux/adAdapterLinux.cpp $PROJECT_ROOT/src/linux/include/libAdLinux.hpp"
 BASE_FILES="$PROJECT_ROOT/src/linux/sharedObject.cpp $PROJECT_ROOT/src/linux/adAdapterLinux.cpp $PROJECT_ROOT/src/linux/include/libAdLinux.hpp"
 LIBLDAP="/usr/lib/x86_64-linux-gnu/libldap-2.4.so.2"
+# shellcheck disable=SC2034
 OUT_BIN="test_libAdAuthBin"
+# shellcheck disable=SC2034
 OUT_BIN_DEBUG="libAdAuthBinDebug"
 OUT_SO="$PROJECT_ROOT/out/libAdAuth.so"
+# shellcheck disable=SC2034
 OUT_SO_DEBUG="$PROJECT_ROOT/out/libAdAuthDebug.so"
 
 # Clear previous build files
@@ -30,8 +34,8 @@ cd build || exit 1
 # g++ -shared adAdapterLinux.o sharedObject.o $LIBLDAP -o $OUT_SO_DEBUG
 
 # Build Shared Object Library [Release]
-g++ -std=c++17 -fPIC -c -Wall $BASE_FILES
-g++ -shared adAdapterLinux.o sharedObject.o $LIBLDAP -o $OUT_SO
+g++ -std=c++17 -fPIC -c -Wall "$BASE_FILES"
+g++ -shared adAdapterLinux.o sharedObject.o $LIBLDAP -o "$OUT_SO"
 
 # Change directory back to $PROJECT_ROOT
 cd ../
