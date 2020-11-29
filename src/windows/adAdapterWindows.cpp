@@ -10,11 +10,11 @@
 #include <memory>
 #include <stdexcept>
 
-wchar_t *convertCharArrayToLPCWSTR(char *charArray)
+wchar_t *charToLPCWSTR(char *charArray)
 {
-	wchar_t *wString = new wchar_t[4096];
-	MultiByteToWideChar(CP_ACP, 0, charArray, -1, wString, 4096);
-	return wString;
+	wchar_t *s = new wchar_t[4096];
+	MultiByteToWideChar(CP_ACP, 0, charArray, -1, s, 4096);
+	return s;
 }
 
 int authWindows(
@@ -26,67 +26,67 @@ int authWindows(
 ) {
 
 #ifdef DEBUG
-  std::cout << "(DEBUG :: libAdAuth) username = " << username << std::endl;
-  std::cout << "(DEBUG :: libAdAuth) password[0] = " << password[0] << std::endl;
-  std::cout << "(DEBUG :: libAdAuth) host = " << host << std::endl;
-  std::cout << "(DEBUG :: libAdAuth) domain = " << domain << std::endl;
-  std::cout << "(DEBUG :: libAdAuth) port = " << *port << std::endl;
+	std::cout << "(DEBUG :: libAdAuth) username = " << username << std::endl;
+	std::cout << "(DEBUG :: libAdAuth) password[0] = " << password[0] << std::endl;
+	std::cout << "(DEBUG :: libAdAuth) host = " << host << std::endl;
+	std::cout << "(DEBUG :: libAdAuth) domain = " << domain << std::endl;
+	std::cout << "(DEBUG :: libAdAuth) port = " << *port << std::endl;
 #endif
 
 	// Security Guards
 	if (!username || !password || !host || !domain) {
 		std::cerr << "Missing value: username, password, host or domain" << std::endl;
-    return LDAP_OTHER;
-	}
-
-	if (!port) {  // NOT nullptr
-		port = new int;		// allocate memory, because port points to NULL
-		*port = LDAP_PORT;	// assign default value
+		return LDAP_OTHER;
 	}
 
 	// Initialise & Open LDAP Connection
-	LDAP *ld = ldap_init(convertCharArrayToLPCWSTR(host), *port);  // ld is the LDAP connection
+	wchar_t *wHostName = charToLPCWSTR(host);
+	LDAP *ld = ldap_init(wHostName, *port);  // ld is the LDAP connection
 	LDAP_TIMEVAL connTimeout = { 5, 0 }; // 5sec 0ms timeout for LDAP connection
 	ULONG conn = ldap_connect(ld, &connTimeout);
+	delete wHostName;
 	if (conn == LDAP_SUCCESS) {
-		#ifdef DEBUG
-				std::cout << "Successful connection to LDAP server..." << std::endl;
-		#endif // DEBUG
+#ifdef DEBUG
+		std::cout << "(DEBUG :: libAdAuth) Successful connection to LDAP server..." << std::endl;
+#endif // DEBUG
 	}
 	else {
-		char hexString[20];
-		std::cerr << "Failed to connect to LDAP. Error: " << conn << " Hex: " << hexString << std::endl;
+		std::cerr << "libAdAuth > Failed to connect to LDAP. Error: " << conn << std::endl;
 		return conn;
 	}
 
-	// Interpolate username + domain into a DN username
-	std::string _DN = username + std::string("@") + domain;
-	char *DN = _strdup(_DN.c_str());
+	// Compile <username>@<domain> to be used for BIND
+	char *DN = _strdup((username + std::string("@") + domain).c_str());
 
 	// Bind As User
+	wchar_t *wDN = charToLPCWSTR(DN);
+	wchar_t *wPW = charToLPCWSTR(password);
 	ULONG bind = ldap_simple_bind_s(
 		ld,
-		convertCharArrayToLPCWSTR(DN), // <username>@<domain>
-		convertCharArrayToLPCWSTR(password) // Password
+		wDN, // <username>@<domain>
+		wPW  // <password>
 	);
+	delete DN;
+	delete wDN;
+	delete wPW;
 
-	switch(bind)
+	switch (bind)
 	{
 	case LDAP_SUCCESS:
-		#ifdef DEBUG
-			std::cout << "Successful BIND to LDAP server..." << std::endl;
-		#endif // DEBUG
+#ifdef DEBUG
+		std::cout << "(DEBUG :: libAdAuth) Successful BIND to LDAP server..." << std::endl;
+#endif // DEBUG
 		break;
 	case LDAP_INVALID_CREDENTIALS:
-		std::cout << "Invalid Credentials..." << std::endl;
+		std::cout << "libAdAuth > Invalid Credentials..." << std::endl;
 		break;
 	default:
 		char hexString[20];
 		_itoa_s(bind, hexString, 20);
-		std::cerr << "Failed to BIND to LDAP. Error: " << bind << " Hex: " << hexString << std::endl;
+		std::cerr << "libAdAuth > Failed to BIND to LDAP. Error: " << bind << " Hex: " << hexString << std::endl;
 		break;
 	}
-	ldap_unbind(ld);  //terminate the LDAP session 
+	ldap_unbind(ld);  //terminate the LDAP session
 
 	return (int)bind;
 }
