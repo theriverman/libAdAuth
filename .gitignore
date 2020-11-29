@@ -224,6 +224,9 @@ ClientBin/
 *.publishsettings
 orleans.codegen.cs
 
+# Apple macOS
+.DS_Store
+
 # Including strong name files can present a security risk
 # (https://github.com/github/gitignore/pull/2483#issue-259490424)
 #*.snk

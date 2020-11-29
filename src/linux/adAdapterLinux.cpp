@@ -16,10 +16,20 @@ int authLinux(
 	char *domain,
 	int  *port
 ) {
-	#ifdef DEBUG
-	std::cout << "(DEBUG) Provided port number (if any) has been disregarded and using default (=389)" << std::endl;
-	#endif
+#ifdef DEBUG
+  std::cout << "(DEBUG :: libAdAuth) username = " << username << std::endl;
+  std::cout << "(DEBUG :: libAdAuth) password[0] = " << password[0] << std::endl;
+  std::cout << "(DEBUG :: libAdAuth) host = " << host << std::endl;
+  std::cout << "(DEBUG :: libAdAuth) domain = " << domain << std::endl;
+  std::cout << "(DEBUG :: libAdAuth) port = " << *port << std::endl;
+#endif
 	
+	// Security Guards
+	if (!username || !password || !host || !domain) {
+		std::cerr << "Missing value: username, password, host or domain" << std::endl;
+    return LDAP_OTHER;
+	}
+
 	// Declarations
 	int conn_status, version(LDAP_VERSION3), bind, unbind;
 	char *server;

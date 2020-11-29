@@ -25,11 +25,21 @@ int authWindows(
 	int *port
 ) {
 
+#ifdef DEBUG
+  std::cout << "(DEBUG :: libAdAuth) username = " << username << std::endl;
+  std::cout << "(DEBUG :: libAdAuth) password[0] = " << password[0] << std::endl;
+  std::cout << "(DEBUG :: libAdAuth) host = " << host << std::endl;
+  std::cout << "(DEBUG :: libAdAuth) domain = " << domain << std::endl;
+  std::cout << "(DEBUG :: libAdAuth) port = " << *port << std::endl;
+#endif
+
 	// Security Guards
 	if (!username || !password || !host || !domain) {
 		std::cerr << "Missing value: username, password, host or domain" << std::endl;
+    return LDAP_OTHER;
 	}
-	if (!port) {
+
+	if (!port) {  // NOT nullptr
 		port = new int;		// allocate memory, because port points to NULL
 		*port = LDAP_PORT;	// assign default value
 	}
