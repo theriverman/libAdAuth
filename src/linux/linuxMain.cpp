@@ -14,9 +14,10 @@ int main()
 	auto password = (char*)"************";
 	auto host     = (char*)"************";
 	auto domain   = (char*)"************";
+    int  port     = 389;
 
-	int auth = authLinux(username, password, host, domain, 0);
-    	
+	int auth = authLinux(username, password, host, domain, &port);
+
     return auth;
 }
 #endif
