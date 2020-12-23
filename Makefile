@@ -11,11 +11,11 @@ ifeq ($(OS),Windows_NT)
 	exit
 else
 	OS_NAME := $(shell uname -s | tr A-Z a-z)
+	INCLUDE_FLAGS = -I$(PROJECT_ROOT)/src/$(OS_NAME)/include
 	ifeq ($(OS_NAME),linux)
-		INCLUDE_FLAGS = -I/usr/include
+		INCLUDE_FLAGS += -I/usr/include
 	endif
 	ifeq ($(OS_NAME),darwin)
-		INCLUDE_FLAGS = -I$(PROJECT_ROOT)/src/$(OS_NAME)/include
 		INCLUDE_FLAGS += -I$(shell brew --prefix openldap)/include
 	endif
 endif
