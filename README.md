@@ -14,8 +14,11 @@ Last, but not least I wanted to learn about the C/C++ <-> Python interoperabilit
 The `libAdAuth` library is cross-platform (Linux + Windows) library with a single platform dependency. <br>
 To build the library, a C/C++ compiler will be required on each build system.
 
+The built binaries and/or libraries are put in the `out` directory.
+
 ## Dependencies
   * Linux: [libldap](http://www.openldap.org/software/man.cgi?query=ldap)
+  * macOS: [libldap](http://www.openldap.org/software/man.cgi?query=ldap)
   * Windows: [winldap](https://docs.microsoft.com/en-us/windows/win32/api/winldap/)
 
 ## Linux
@@ -24,6 +27,13 @@ To be able to link against `libldap`, it must be installed first.
 
 To install `libldap` on Debian/Ubuntu, execute the following command: <br>
 `sudo apt-get install libldap2-dev`
+
+## macOS
+The recommended compiler is `g++ (clang)`. <br>
+To be able to link against `libldap`, it must be installed first.
+
+To install `libldap` on macOS with `brew`, execute the following command: <br>
+`brew install openldap`
 
 ## Windows
 The recommended compiler is `MSVC` 2017 or newer. <br>
@@ -34,6 +44,7 @@ To install `winldap`, the [Windows 10 SDK](https://developer.microsoft.com/en-us
 # Implementation
 The `libAdAuth` library is compiled to a [Shared Library](https://en.wikipedia.org/wiki/Library_(computing)#Shared_libraries) on all platforms. <br>
   * **Linux**: `libAdAuth.so`
+  * **macOS**: `libAdAuth.dylib`
   * **Windows**: `libAdAuth.dll`
 
 The `libAdAuth` library exposes a single C function interface in **Release** build and an optional debug function called `foo` in **Debug** build mode.
